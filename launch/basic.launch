@@ -1,0 +1,14 @@
+<!-- Basic Launchfile that calls sim -->
+<launch>
+
+  <!-- This argument determines if the code will run on the sim or on the real car -->
+  <!-- Use "racecar-uw" to run on the real car -->
+
+  <!-- Calls telop.launch which will run our simulator -->
+  <include file="$(find mushr_sim)/launch/teleop.launch"/>
+  <include file="$(find mushr_sim)/launch/map_server.launch"/>
+  
+  <!-- Create a node that runs our program -->
+  <node pkg="broken_control" type="controller.py" name="controller" output="screen"/>
+
+</launch>
